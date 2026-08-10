@@ -1,11 +1,10 @@
 {
   "name": "hivemind",
-  "version": "0.0.1",
-  "description": "HiveMind — camada de memória e identidade (engram) via Porta B. Conecta o engram como MCP server e traz as skills de boot e end-session.",
+  "version": "0.1.0",
+  "description": "HiveMind — skills de boot e end-session para o engram (memória + identidade). A conexão MCP é adicionada manualmente via config.toml.",
   "interface": {
     "displayName": "HiveMind",
-    "shortDescription": "Memória + identidade persistente para o seu agente, via Porta B (bearer)."
+    "shortDescription": "Skills de boot/end-session do HiveMind. A conexão MCP é configurada à parte, no config.toml."
   },
-  "skills": "./skills/",
-  "mcpServers": "./.mcp.json"
+  "skills": "./skills/"
 }
