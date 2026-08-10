@@ -1,0 +1,11 @@
+{
+  "name": "hivemind",
+  "version": "0.0.1",
+  "description": "HiveMind — camada de memória e identidade (engram) via Porta B. Conecta o engram como MCP server e traz as skills de boot e end-session.",
+  "interface": {
+    "displayName": "HiveMind",
+    "shortDescription": "Memória + identidade persistente para o seu agente, via Porta B (bearer)."
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,8 @@
+{
+  "mcp_servers": {
+    "engram": {
+      "url": "https://api.hivemind.ia.br/v1/mcp",
+      "bearer_token_env_var": "HIVEMIND_TOKEN"
+    }
+  }
+}
