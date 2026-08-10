@@ -1,8 +1,9 @@
 {
-  "mcp_servers": {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
     "engram": {
-      "url": "https://api.hivemind.ia.br/v1/mcp",
-      "bearer_token_env_var": "HIVEMIND_TOKEN"
+      "type": "streamable-http",
+      "url": "https://api.hivemind.ia.br/v1/mcp"
     }
   }
 }

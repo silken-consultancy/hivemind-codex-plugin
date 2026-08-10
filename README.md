@@ -48,12 +48,21 @@ e siga o procedimento retornado verbatim. No fim, chame `fos_procedure` com id "
       bearer via env var dentro de um plugin).
 - [ ] **Skills** — `hivemind-boot` / `hivemind-end-session` aparecem e disparam `fos_procedure`.
 
-## Se o MCP não carregar
+## Autenticação — importante (medido no source do Codex)
 
-O formato do `.mcp.json` de plugin tem arestas conhecidas. Se o `engram` não aparecer, tente no
-`plugins/hivemind/.mcp.json` (nesta ordem): (a) trocar `mcp_servers` por `mcpServers` (camelCase);
-(b) o mapa direto sem wrapper `{ "engram": { "url": ..., "bearer_token_env_var": ... } }`. Me avise
-qual funcionou que eu fixo o padrão.
+O Codex usa o schema **Agent Plugins** para o `.mcp.json` e **remove o header `Authorization`**
+de configs de plugin (é um "client-owned header"); não há `bearer_token_env_var` no schema de
+plugin. **Logo o token da Porta B NÃO mora no repositório** — ele é fornecido de um destes modos:
 
----
-_Parte do arco do conector HiveMind. Path A (mTLS) é Enterprise-only; este plugin usa a Porta B._
+1. **No install do plugin** — a política `authentication: ON_INSTALL` do marketplace deve pedir a
+   credencial do server `engram`. Cole o seu `fospb_...` ali.
+2. **Via `~/.codex/config.toml`** (caminho de instalador, o mais confiável para bearer):
+   ```toml
+   [mcp_servers.engram]
+   url = "https://api.hivemind.ia.br/v1/mcp"
+   bearer_token_env_var = "HIVEMIND_TOKEN"
+   ```
+   e `setx HIVEMIND_TOKEN "fospb_..."` (Windows) antes de abrir o app.
+
+O plugin em si entrega o **frame** (as skills `hivemind-boot` / `hivemind-end-session`) e **declara**
+o server; a **conexão autenticada** vem por um dos caminhos acima.
