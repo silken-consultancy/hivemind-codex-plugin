@@ -1,10 +1,10 @@
 {
   "name": "hivemind",
   "version": "0.1.0",
-  "description": "HiveMind — skills de boot e end-session para o engram (memória + identidade). A conexão MCP é adicionada manualmente via config.toml.",
+  "description": "HiveMind — skills de boot e end-session para o engram (memória + identidade). Cada skill é um stub fino que busca e executa o procedimento servido pelo engram via fos_procedure. A conexão MCP é adicionada manualmente via config.toml (Porta B / bearer).",
   "interface": {
     "displayName": "HiveMind",
-    "shortDescription": "Skills de boot/end-session do HiveMind. A conexão MCP é configurada à parte, no config.toml."
+    "shortDescription": "Skills de boot/end-session do HiveMind (procedimento servido pelo engram). A conexão MCP é configurada à parte, no config.toml."
   },
   "skills": "./skills/"
 }

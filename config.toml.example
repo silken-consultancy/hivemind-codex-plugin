@@ -1,0 +1,25 @@
+# HiveMind — conexão do engram (MCP) para o Codex, via Porta B (bearer).
+#
+# COMO USAR
+#   1. Copie o bloco [mcp_servers.engram] abaixo para o FINAL do seu config.toml do Codex:
+#        - Windows:      %USERPROFILE%\.codex\config.toml
+#        - macOS/Linux:  ~/.codex/config.toml
+#      (ou, escopado ao projeto confiável: .codex/config.toml)
+#
+#   2. Defina o token numa VARIÁVEL DE AMBIENTE — nunca dentro deste arquivo.
+#      O Codex REJEITA um token inline (`bearer_token = "..."`); a chave suportada é
+#      `bearer_token_env_var`, cujo valor é o NOME da variável de ambiente que guarda o token.
+#        - Windows (PowerShell/CMD):  setx HIVEMIND_TOKEN "fospb_YOUR_TOKEN_HERE"   → feche e reabra o app
+#        - macOS/Linux (shell rc):    export HIVEMIND_TOKEN="fospb_YOUR_TOKEN_HERE"
+#      Gere o token real (`fospb_...`) na dashboard do HiveMind. Ele fica só na sua máquina.
+#
+#   Alternativa via CLI (faz a mesma edição):
+#     codex mcp add engram --url https://api.hivemind.ia.br/v1/mcp --bearer-token-env-var=HIVEMIND_TOKEN
+
+[mcp_servers.engram]
+url = "https://api.hivemind.ia.br/v1/mcp"
+bearer_token_env_var = "HIVEMIND_TOKEN"
+
+# Se o seu Codex for antigo e ignorar `url` (o server não conecta), atualize o Codex.
+# Em builds pré-out/2025 a conexão HTTP remota ficava atrás de uma flag experimental
+# (`experimental_use_rmcp_client = true`, no topo do config.toml) — hoje deprecada e desnecessária.
