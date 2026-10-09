@@ -1,6 +1,6 @@
 {
   "name": "hivemind",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HiveMind — skills de boot e end-session para o engram (memória + identidade). A conexão MCP é adicionada manualmente via config.toml.",
   "interface": {
     "displayName": "HiveMind",
