@@ -1,6 +1,7 @@
 ---
 name: hivemind-end-session
-description: Use ao encerrar uma sessão HiveMind para consolidar memórias e gravar o handoff de continuidade via o procedimento servido pelo engram.
+description: Use ao encerrar uma sessão HiveMind (quando o usuário disser "encerrar", "end session", "fechar a sessão" ou estiver finalizando) para consolidar memórias e gravar o handoff de continuidade no engram.
 ---
 
-Chame a tool `fos_procedure` com `{ "id": "end-session" }` e **execute o `body` retornado verbatim** — ele consolida as memórias da sessão e fecha com um `next_note` de continuidade garantido, para o próximo boot retomar de onde parou.
+Rode o procedimento de **end-session** servido pelo MCP server `engram` (procedimento de id `end-session`) e siga-o exatamente como ele vier.
+Se o engram não responder ou não devolver o procedimento, **pare** e diga que o encerramento não foi salvo — não finja um handoff.

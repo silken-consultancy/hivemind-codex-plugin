@@ -1,8 +1,7 @@
 ---
 name: hivemind-boot
-description: Use no início de uma sessão HiveMind (ou quando o usuário pedir para "iniciar"/"boot") para carregar identidade + contexto do projeto via o procedimento servido pelo engram.
+description: Use no início de uma sessão HiveMind (ou quando o usuário pedir para "iniciar"/"boot") para carregar identidade + contexto do projeto a partir do engram.
 ---
 
-Chame a tool `fos_procedure` com `{ "id": "boot" }`. Pegue o campo `body` retornado e **execute-o verbatim e por completo** — é o procedimento de boot autoritativo do HiveMind: ele carrega as próprias tools MCP, resolve o slug do projeto e roda a espinha determinística de identidade + projeto.
-
-Se a chamada falhar, vier vazia, ou o engram estiver inalcançável, **pare** e reporte que o boot do HiveMind não pôde ser servido — não improvise identidade ou estado a partir de memória.
+Rode o procedimento de **boot** servido pelo MCP server `engram` (procedimento de id `boot`) e siga-o exatamente como ele vier.
+Se o engram não responder ou não devolver o procedimento, **pare** e diga que a sessão HiveMind não pôde começar — não improvise identidade nem estado.
